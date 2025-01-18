@@ -1,4 +1,4 @@
-# find count_vowels in sentence or paragraph
+#find count_vowels in sentence or paragraph
 def count_vowels(txt):
     count = 0
     vowels = ["a", "e", "i", "o", "u"]
@@ -6,7 +6,6 @@ def count_vowels(txt):
         if char in vowels:
             count += 1
     return count
-
 
 if __name__ == "__main__":
     while True:
