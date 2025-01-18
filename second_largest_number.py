@@ -1,11 +1,21 @@
-# Write a program that finds the largest number among three numbers.
-numbers = [1, 2, 3, 23, 43, 54, 3, 32, 43]
-b = 0
-second_largest_number = 0
-for i in numbers:
-    if i > b:
-        second_largest_number = b
-        b = i
-    elif i > second_largest_number and i != b:
-        second_largest_number = i
-print(second_largest_number)
+def second_largest_number(numbers):
+    largest_number = float("-inf")
+    second_largest_num = 0
+    for num in numbers:
+        if num > largest_number:
+            second_largest_num = largest_number
+            largest_number = num
+        elif num > second_largest_num and num != largest_number:
+            second_largest_num = num
+    return second_largest_num
+
+
+if __name__ == "__main__":
+    while True:
+        numbers = input("Enter numbers given by ',': ").strip()
+        if numbers:
+            numbers = [int(num) for num in numbers.split(",")]
+            print(second_largest_number(numbers))
+            break
+        else:
+            print("Don't leave empty")
