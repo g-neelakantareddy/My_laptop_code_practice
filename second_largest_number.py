@@ -12,7 +12,7 @@ def second_largest_number(numbers):
 
 if __name__ == "__main__":
     while True:
-        numbers = input("Enter numbers given by ',': ").strip()
+        numbers = input('Enter numbers given by \',\': ').strip()
         if numbers:
             numbers = [int(num) for num in numbers.split(",")]
             print(second_largest_number(numbers))
