@@ -1,5 +1,7 @@
-string = "write something you like and find how many words are there"
-splited_string = string.split()
-print(splited_string)
-stripped_string = "".join(splited_string)
-print(stripped_string)
+count = 0
+string = "The l"
+split_string = string.split()
+join_string = "".join(split_string)
+for i in join_string:
+    count += 1
+print(count)
