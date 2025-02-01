@@ -1,7 +1,6 @@
-count = 0
-string = "The l"
-split_string = string.split()
-join_string = "".join(split_string)
-for i in join_string:
-    count += 1
-print(count)
+import string
+
+a = string.ascii_lowercase[0:3]
+print(a)
+
+print(chr(97))
