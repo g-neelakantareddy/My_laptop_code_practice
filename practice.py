@@ -1,6 +1,6 @@
-import string
-
-a = string.ascii_lowercase[0:3]
-print(a)
-
-print(chr(97))
+nums = [2, 3, 4, 5]
+numbers = [3, 4, 5, 2]
+if nums == numbers:
+    print("True")
+else:
+    print("False")

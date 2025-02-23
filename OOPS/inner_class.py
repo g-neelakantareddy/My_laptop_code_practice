@@ -19,5 +19,5 @@ class Student:
 
 s1 = Student("Neela", "4")
 s2 = Student("Hari", "24")
-s2.show()
-s2.lap.show()
+s1.show()
+s1.lap.show()

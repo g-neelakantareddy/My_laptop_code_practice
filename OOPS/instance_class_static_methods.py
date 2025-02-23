@@ -12,8 +12,8 @@ class Student:
         return f"he likes {Student.sports}"  # we can't access instance variables in class methods
 
     @staticmethod
-    def read_info(name):  # we can access only class variables
-        return f"This is just information about {name}"
+    def read_info(name):  # we can access both instance variables (name) and class variables (Student.sports)
+        return f"This is just information about {Student.sports}"
 
 
 s1 = Student("Neela")
