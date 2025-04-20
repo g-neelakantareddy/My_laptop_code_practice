@@ -1,35 +1,45 @@
 from selenium import webdriver
-from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
+from time import sleep
+import logging
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.keys import Keys
+import pyautogui
 
-# Initialize the Chrome WebDriver
-driver = webdriver.Chrome()  # Ensure chromedriver is in your PATH or specify the path
+firefox_options = webdriver.ChromeOptions()
 
-# Navigate to a URL
-driver.get("https://www.techwithtim.net/")  # Replace with your target URL
+# create webdriver object
+driver = webdriver.Chrome()
+driver.maximize_window()
 
-try:
-    # Wait until the header element is present and clickable
-    header = WebDriverWait(driver, 10).until(
-        EC.element_to_be_clickable((By.CLASS_NAME, "content__CardContentContainer-sc-1nrnigk-0"))
-    )
+# get geeksforgeeks.org
+driver.get("https://www.geeksforgeeks.org/")
 
-    # Click the header element
-    header.click()
+# get element
+element = driver.find_element(By.XPATH, "//div[normalize-space()='Courses']")
 
-    python = WebDriverWait(driver, 5).until(
-        EC.element_to_be_clickable((By.CLASS_NAME, "tag__TagContainer-sc-3f52y0-0"))
-    )
+# create action chain object
+action = ActionChains(driver)
 
-    python.click()
-    driver.back()
-    driver.forward()
-except Exception as e:
-    print(f"An error occurred: {e}")
+# perform the operation
+action.context_click(element).click()
+action.perform()
+sleep(3)
 
-# Wait for user input before closing the browser
-input("Press Enter to close the browser...")
+sleep(1)
+pyautogui.press('down')   # Navigate down in the menu
+sleep(0.5)
+pyautogui.press('down')   # Navigate again
+sleep(0.5)
+pyautogui.press('enter')  # Press Enter to select the option
+sleep(2)
+action.send_keys(Keys.ARROW_DOWN).perform()  # Navigate down
+sleep(1)
+action.send_keys(Keys.RETURN).perform()       # Press Enter
+sleep(6)
+pyautogui.click(x=100, y=100)
 
-# Quit the driver
+sleep(5)
 driver.quit()
